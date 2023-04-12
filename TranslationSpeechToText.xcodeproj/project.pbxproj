@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1DDA3CDD41DCE3703F5C5F47 /* Pods_TranslationSpeechToText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D47F7974D2EA362ED72B4CB /* Pods_TranslationSpeechToText.framework */; };
 		CF5B083129E64C2400E51EB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B083029E64C2400E51EB2 /* AppDelegate.swift */; };
 		CF5B083329E64C2400E51EB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B083229E64C2400E51EB2 /* SceneDelegate.swift */; };
 		CF5B083529E64C2400E51EB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B083429E64C2400E51EB2 /* ViewController.swift */; };
@@ -14,9 +15,13 @@
 		CF5B083B29E64C2400E51EB2 /* TranslationSpeechToText.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF5B083929E64C2400E51EB2 /* TranslationSpeechToText.xcdatamodeld */; };
 		CF5B083D29E64C2900E51EB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF5B083C29E64C2900E51EB2 /* Assets.xcassets */; };
 		CF5B084029E64C2900E51EB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF5B083E29E64C2900E51EB2 /* LaunchScreen.storyboard */; };
+		CFE8E7A429E68BCC0085FF94 /* GoogleTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE8E7A329E68BCA0085FF94 /* GoogleTranslate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		086A1E960F0706B5533C53CA /* Pods-TranslationSpeechToText.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranslationSpeechToText.debug.xcconfig"; path = "Target Support Files/Pods-TranslationSpeechToText/Pods-TranslationSpeechToText.debug.xcconfig"; sourceTree = "<group>"; };
+		2D47F7974D2EA362ED72B4CB /* Pods_TranslationSpeechToText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TranslationSpeechToText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		89D5A214E168E6F88163CDC7 /* Pods-TranslationSpeechToText.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranslationSpeechToText.release.xcconfig"; path = "Target Support Files/Pods-TranslationSpeechToText/Pods-TranslationSpeechToText.release.xcconfig"; sourceTree = "<group>"; };
 		CF5B082D29E64C2300E51EB2 /* TranslationSpeechToText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranslationSpeechToText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5B083029E64C2400E51EB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF5B083229E64C2400E51EB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +31,7 @@
 		CF5B083C29E64C2900E51EB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF5B083F29E64C2900E51EB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF5B084129E64C2900E51EB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFE8E7A329E68BCA0085FF94 /* GoogleTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleTranslate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +39,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DDA3CDD41DCE3703F5C5F47 /* Pods_TranslationSpeechToText.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C94C29B58EEF95379A23699 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D47F7974D2EA362ED72B4CB /* Pods_TranslationSpeechToText.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CF5B082429E64C2300E51EB2 = {
 			isa = PBXGroup;
 			children = (
 				CF5B082F29E64C2300E51EB2 /* TranslationSpeechToText */,
 				CF5B082E29E64C2300E51EB2 /* Products */,
+				F25FF0B006AF998B33DA2C25 /* Pods */,
+				2C94C29B58EEF95379A23699 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +78,7 @@
 				CF5B083029E64C2400E51EB2 /* AppDelegate.swift */,
 				CF5B083229E64C2400E51EB2 /* SceneDelegate.swift */,
 				CF5B083429E64C2400E51EB2 /* ViewController.swift */,
+				CFE8E7A329E68BCA0085FF94 /* GoogleTranslate.swift */,
 				CF5B083629E64C2400E51EB2 /* Main.storyboard */,
 				CF5B083C29E64C2900E51EB2 /* Assets.xcassets */,
 				CF5B083E29E64C2900E51EB2 /* LaunchScreen.storyboard */,
@@ -70,6 +88,15 @@
 			path = TranslationSpeechToText;
 			sourceTree = "<group>";
 		};
+		F25FF0B006AF998B33DA2C25 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				086A1E960F0706B5533C53CA /* Pods-TranslationSpeechToText.debug.xcconfig */,
+				89D5A214E168E6F88163CDC7 /* Pods-TranslationSpeechToText.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF5B084429E64C2900E51EB2 /* Build configuration list for PBXNativeTarget "TranslationSpeechToText" */;
 			buildPhases = (
+				27A08D33FF6BA8959925FF8E /* [CP] Check Pods Manifest.lock */,
 				CF5B082929E64C2300E51EB2 /* Sources */,
 				CF5B082A29E64C2300E51EB2 /* Frameworks */,
 				CF5B082B29E64C2300E51EB2 /* Resources */,
+				8C8499EABC583D9199477756 /* [CP] Embed Pods Frameworks */,
+				46F5BFF3897D439B868995C3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,11 +166,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		27A08D33FF6BA8959925FF8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TranslationSpeechToText-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46F5BFF3897D439B868995C3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TranslationSpeechToText/Pods-TranslationSpeechToText-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TranslationSpeechToText/Pods-TranslationSpeechToText-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TranslationSpeechToText/Pods-TranslationSpeechToText-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C8499EABC583D9199477756 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TranslationSpeechToText/Pods-TranslationSpeechToText-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TranslationSpeechToText/Pods-TranslationSpeechToText-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TranslationSpeechToText/Pods-TranslationSpeechToText-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CF5B082929E64C2300E51EB2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFE8E7A429E68BCC0085FF94 /* GoogleTranslate.swift in Sources */,
 				CF5B083529E64C2400E51EB2 /* ViewController.swift in Sources */,
 				CF5B083129E64C2400E51EB2 /* AppDelegate.swift in Sources */,
 				CF5B083329E64C2400E51EB2 /* SceneDelegate.swift in Sources */,
@@ -286,6 +376,7 @@
 		};
 		CF5B084529E64C2900E51EB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 086A1E960F0706B5533C53CA /* Pods-TranslationSpeechToText.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -314,6 +405,7 @@
 		};
 		CF5B084629E64C2900E51EB2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89D5A214E168E6F88163CDC7 /* Pods-TranslationSpeechToText.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
