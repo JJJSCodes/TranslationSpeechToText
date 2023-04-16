@@ -25,9 +25,14 @@ class ViewController: UIViewController {
         input.layer.cornerRadius = 5;
         input.layer.masksToBounds = true;
         input.layer.borderWidth = 1;
+        input.layer.borderColor = UIColor.gray.cgColor
+
+        
         result.layer.cornerRadius = 5;
         result.layer.masksToBounds = true;
         result.layer.borderWidth = 1;
+        result.layer.borderColor = UIColor.gray.cgColor
+
     }
 
 
