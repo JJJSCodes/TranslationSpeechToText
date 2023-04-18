@@ -56,6 +56,11 @@
             value = "AIzaSyD8S8YaBwj3D1kyGVuNS837nwqwgiHtlbQ"
             isEnabled = "YES">
          </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "GOOGLE_TRANSLATION_API_KEY"
+            value = "AIzaSyATRpFiGChuDpLTYyxQdmPSKnHqWTeaGiA"
+            isEnabled = "YES">
+         </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
