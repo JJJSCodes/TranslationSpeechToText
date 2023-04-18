@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zQS-v0-8Qg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zQS-v0-8Qg">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Text-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TranslationSpeechToText" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,7 +40,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ja8-KK-9Hv">
-                                <rect key="frame" x="20" y="79" width="353" height="300"/>
+                                <rect key="frame" x="20" y="123" width="353" height="300"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8jf-Vd-byv">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="140.33333333333334"/>
@@ -49,7 +50,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Translation" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zaV-td-kRs">
-                                        <rect key="frame" x="0.0" y="160.33333333333337" width="353" height="139.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="160.33333333333331" width="353" height="139.66666666666669"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -92,7 +93,6 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUi-az-V0N" userLabel="Language Selector Button">
                                                 <rect key="frame" x="0.0" y="91.000000000000057" width="200" height="59"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="24" id="YRq-zv-xbv"/>
                                                     <constraint firstAttribute="width" constant="200" id="dXN-dP-2Bz"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -130,7 +130,7 @@
                             <constraint firstItem="Ja8-KK-9Hv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="yjV-qI-1UD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Text" image="text.bubble.fill" catalog="system" id="uKK-Mo-4Yj"/>
+                    <navigationItem key="navigationItem" id="AjV-sQ-ixe"/>
                     <connections>
                         <outlet property="doneButton" destination="gel-fj-g4J" id="Sqh-Dt-yX3"/>
                         <outlet property="languageInputField" destination="8jf-Vd-byv" id="2wB-mD-ZiW"/>
@@ -142,7 +142,131 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="915.26717557251902" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="1841.9847328244275" y="-27.464788732394368"/>
+        </scene>
+        <!--Upload View Controller-->
+        <scene sceneID="wHB-Ad-Bwq">
+            <objects>
+                <viewController id="Lep-Bv-Z5d" customClass="UploadViewController" customModule="TranslationSpeechToText" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oI8-Gt-Oow">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azA-eR-Ym8">
+                                <rect key="frame" x="20" y="103" width="353" height="34.333333333333343"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Upload Image"/>
+                                <connections>
+                                    <action selector="uploadImagePressed:" destination="Lep-Bv-Z5d" eventType="touchUpInside" id="QpO-kf-gDw"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGg-J3-GsN" userLabel="Language Picker">
+                                <rect key="frame" x="0.0" y="769" width="393" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="vX4-bb-QBc" userLabel="Language Picker Height Constraint"/>
+                                </constraints>
+                            </pickerView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ily-mP-zKg" userLabel="Done Button">
+                                <rect key="frame" x="308.66666666666669" y="769" width="64.333333333333314" height="34.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Done"/>
+                                <connections>
+                                    <action selector="doneTapped:" destination="Lep-Bv-Z5d" eventType="touchUpInside" id="6IT-Ii-Rx6"/>
+                                    <action selector="doneTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cHJ-K5-s2B"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="JTQ-cp-kZ5">
+                                <rect key="frame" x="20" y="157.33333333333337" width="353" height="300"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="71g-2n-yl5" userLabel="Language Input Field">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="121"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="121" id="cQd-2f-Cj8"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Translation" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zWA-KU-cl7" userLabel="Translated Text">
+                                        <rect key="frame" x="0.0" y="154.99999999999997" width="353" height="145.00000000000003"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="gHH-ZM-yXo"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Equ-xN-Tsf">
+                                <rect key="frame" x="20" y="545.33333333333337" width="353" height="35.666666666666629"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Output Language:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z27-mt-mu0">
+                                        <rect key="frame" x="0.0" y="0.0" width="137.33333333333334" height="35.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WEP-q6-nC9" userLabel="Language Selector Button">
+                                        <rect key="frame" x="137.33333333333337" y="0.0" width="215.66666666666663" height="35.666666666666664"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Select Language">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="languageSelectorTapped:" destination="Lep-Bv-Z5d" eventType="touchUpInside" id="CMa-yZ-dy6"/>
+                                            <action selector="languageSelectorTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lQo-Yc-Fmg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkp-BF-qXB">
+                                <rect key="frame" x="149.66666666666666" y="491" width="94" height="34.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Translate"/>
+                                <connections>
+                                    <action selector="translatePressed:" destination="Lep-Bv-Z5d" eventType="touchUpInside" id="Idd-2J-ECA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IRF-MR-tSP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="azA-eR-Ym8" firstAttribute="top" secondItem="IRF-MR-tSP" secondAttribute="top" id="08X-Lk-QVe"/>
+                            <constraint firstItem="azA-eR-Ym8" firstAttribute="leading" secondItem="IRF-MR-tSP" secondAttribute="leading" constant="20" id="0Xn-qY-FDL"/>
+                            <constraint firstItem="pkp-BF-qXB" firstAttribute="centerX" secondItem="oI8-Gt-Oow" secondAttribute="centerX" id="3ex-BT-8hz"/>
+                            <constraint firstItem="IRF-MR-tSP" firstAttribute="trailing" secondItem="JTQ-cp-kZ5" secondAttribute="trailing" constant="20" id="7Lp-za-w6G"/>
+                            <constraint firstItem="Equ-xN-Tsf" firstAttribute="top" secondItem="pkp-BF-qXB" secondAttribute="bottom" constant="20" id="J4b-sa-jRZ"/>
+                            <constraint firstItem="pkp-BF-qXB" firstAttribute="top" secondItem="JTQ-cp-kZ5" secondAttribute="bottom" constant="33.670000000000002" id="M1v-kH-TxO"/>
+                            <constraint firstItem="JTQ-cp-kZ5" firstAttribute="top" secondItem="azA-eR-Ym8" secondAttribute="bottom" constant="20" id="MNR-Mc-W7A"/>
+                            <constraint firstItem="IRF-MR-tSP" firstAttribute="trailing" secondItem="Equ-xN-Tsf" secondAttribute="trailing" constant="20" id="VAN-9g-zGR"/>
+                            <constraint firstItem="IRF-MR-tSP" firstAttribute="bottom" secondItem="vGg-J3-GsN" secondAttribute="bottom" id="VZO-PY-sxi"/>
+                            <constraint firstItem="JTQ-cp-kZ5" firstAttribute="leading" secondItem="IRF-MR-tSP" secondAttribute="leading" constant="20" id="Z1A-jS-YKx"/>
+                            <constraint firstItem="vGg-J3-GsN" firstAttribute="leading" secondItem="IRF-MR-tSP" secondAttribute="leading" id="bzK-Nw-Z6U"/>
+                            <constraint firstAttribute="centerX" secondItem="Equ-xN-Tsf" secondAttribute="centerX" id="nQE-ay-1uN"/>
+                            <constraint firstItem="Equ-xN-Tsf" firstAttribute="leading" secondItem="IRF-MR-tSP" secondAttribute="leading" constant="20" id="oNa-Vj-Kir"/>
+                            <constraint firstItem="Ily-mP-zKg" firstAttribute="top" secondItem="vGg-J3-GsN" secondAttribute="top" id="qkt-cb-Tny"/>
+                            <constraint firstItem="vGg-J3-GsN" firstAttribute="trailing" secondItem="IRF-MR-tSP" secondAttribute="trailing" id="v0j-8Z-dSW"/>
+                            <constraint firstAttribute="trailing" secondItem="Ily-mP-zKg" secondAttribute="trailing" constant="20" id="vVZ-Ox-agu"/>
+                            <constraint firstItem="IRF-MR-tSP" firstAttribute="trailing" secondItem="azA-eR-Ym8" secondAttribute="trailing" constant="20" id="yRC-WQ-39c"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="enL-d8-n6B"/>
+                    <connections>
+                        <outlet property="doneButton" destination="Ily-mP-zKg" id="dFN-TK-otS"/>
+                        <outlet property="languageInputField" destination="71g-2n-yl5" id="LBg-6w-5HT"/>
+                        <outlet property="languagePicker" destination="vGg-J3-GsN" id="8UP-k9-5kq"/>
+                        <outlet property="languagePickerHeightConstraint" destination="vX4-bb-QBc" id="uce-ec-eBY"/>
+                        <outlet property="languageSelectorButton" destination="WEP-q6-nC9" id="wbj-na-cpr"/>
+                        <outlet property="translatedText" destination="zWA-KU-cl7" id="isC-Co-nn3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IBC-7x-nIQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1841.9847328244275" y="686.61971830985919"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GK3-vQ-Wc6">
@@ -155,15 +279,55 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="q3P-kO-68y"/>
+                        <segue destination="ADJ-2c-Yt3" kind="relationship" relationship="viewControllers" id="q3P-kO-68y"/>
+                        <segue destination="bns-mP-snx" kind="relationship" relationship="viewControllers" id="NHv-Cv-0wT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yop-Fw-hpD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-11.450381679389313" y="-27.464788732394368"/>
         </scene>
+        <!--Text-->
+        <scene sceneID="sex-SX-Ppw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ADJ-2c-Yt3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Text" image="text.bubble.fill" catalog="system" id="uKK-Mo-4Yj"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VVO-Cp-hvd">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="foP-Jb-x6O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3DE-hd-sT3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="915.26717557251902" y="-27.464788732394368"/>
+        </scene>
+        <!--Upload-->
+        <scene sceneID="qMf-Ru-SxL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bns-mP-snx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Upload" image="folder.fill" catalog="system" id="9eD-FF-qnV"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QId-2l-uEI">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Lep-Bv-Z5d" kind="relationship" relationship="rootViewController" id="HXe-vf-8Sh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gqB-fq-Wgk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="915" y="687"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="folder.fill" catalog="system" width="128" height="96"/>
         <image name="text.bubble.fill" catalog="system" width="128" height="110"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
