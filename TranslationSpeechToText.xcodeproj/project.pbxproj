@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050873C929EE6AF60019F7E1 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050873C829EE6AF60019F7E1 /* UploadViewController.swift */; };
 		1DDA3CDD41DCE3703F5C5F47 /* Pods_TranslationSpeechToText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D47F7974D2EA362ED72B4CB /* Pods_TranslationSpeechToText.framework */; };
+		92558EAE29F38DEB003E6E87 /* speechtotext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92558EAD29F38DEB003E6E87 /* speechtotext.swift */; };
 		CF5B083129E64C2400E51EB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B083029E64C2400E51EB2 /* AppDelegate.swift */; };
 		CF5B083329E64C2400E51EB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B083229E64C2400E51EB2 /* SceneDelegate.swift */; };
 		CF5B083529E64C2400E51EB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5B083429E64C2400E51EB2 /* ViewController.swift */; };
@@ -19,9 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		050873C829EE6AF60019F7E1 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		086A1E960F0706B5533C53CA /* Pods-TranslationSpeechToText.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranslationSpeechToText.debug.xcconfig"; path = "Target Support Files/Pods-TranslationSpeechToText/Pods-TranslationSpeechToText.debug.xcconfig"; sourceTree = "<group>"; };
 		2D47F7974D2EA362ED72B4CB /* Pods_TranslationSpeechToText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TranslationSpeechToText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89D5A214E168E6F88163CDC7 /* Pods-TranslationSpeechToText.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TranslationSpeechToText.release.xcconfig"; path = "Target Support Files/Pods-TranslationSpeechToText/Pods-TranslationSpeechToText.release.xcconfig"; sourceTree = "<group>"; };
+		92558EAD29F38DEB003E6E87 /* speechtotext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = speechtotext.swift; sourceTree = "<group>"; };
 		CF5B082D29E64C2300E51EB2 /* TranslationSpeechToText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TranslationSpeechToText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5B083029E64C2400E51EB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF5B083229E64C2400E51EB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,13 +81,15 @@
 			children = (
 				CF5B083029E64C2400E51EB2 /* AppDelegate.swift */,
 				CF5B083229E64C2400E51EB2 /* SceneDelegate.swift */,
-				CF5B083429E64C2400E51EB2 /* ViewController.swift */,
 				CFE8E7A329E68BCA0085FF94 /* GoogleTranslate.swift */,
+				CF5B083429E64C2400E51EB2 /* ViewController.swift */,
 				CF5B083629E64C2400E51EB2 /* Main.storyboard */,
 				CF5B083C29E64C2900E51EB2 /* Assets.xcassets */,
 				CF5B083E29E64C2900E51EB2 /* LaunchScreen.storyboard */,
 				CF5B084129E64C2900E51EB2 /* Info.plist */,
 				CF5B083929E64C2400E51EB2 /* TranslationSpeechToText.xcdatamodeld */,
+				050873C829EE6AF60019F7E1 /* UploadViewController.swift */,
+				92558EAD29F38DEB003E6E87 /* speechtotext.swift */,
 			);
 			path = TranslationSpeechToText;
 			sourceTree = "<group>";
@@ -231,8 +237,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFE8E7A429E68BCC0085FF94 /* GoogleTranslate.swift in Sources */,
+				050873C929EE6AF60019F7E1 /* UploadViewController.swift in Sources */,
 				CF5B083529E64C2400E51EB2 /* ViewController.swift in Sources */,
 				CF5B083129E64C2400E51EB2 /* AppDelegate.swift in Sources */,
+				92558EAE29F38DEB003E6E87 /* speechtotext.swift in Sources */,
 				CF5B083329E64C2400E51EB2 /* SceneDelegate.swift in Sources */,
 				CF5B083B29E64C2400E51EB2 /* TranslationSpeechToText.xcdatamodeld in Sources */,
 			);
