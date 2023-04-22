@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  speech_translation
+//  test
 //
-//  Created by Bayson on 4/16/23.
+//  Created by Bayson on 4/19/23.
 //
 
 import UIKit
