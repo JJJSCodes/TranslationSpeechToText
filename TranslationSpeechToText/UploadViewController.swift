@@ -8,6 +8,7 @@
 import UIKit
 import MLKit
 import PhotosUI
+import SwiftyJSON
 
 class UploadViewController: UIViewController {
     
@@ -28,15 +29,61 @@ class UploadViewController: UIViewController {
     @IBOutlet weak var languagePickerHeightConstraint: NSLayoutConstraint!
     
     private var pickedImage: UIImage?
+    private var inputText: String?
+    let group = DispatchGroup()
+    
+    private var gotInputText: Bool = false
+    
+    let session = URLSession.shared
+    var googleAPIKey = "AIzaSyAw9seNh0duA11NBHiYvflZoJY3XA7mhWo"
+    var googleURL: URL {
+        return URL(string: "https://vision.googleapis.com/v1/images:annotate?key=\(googleAPIKey)")!
+    }
     
     @IBAction func translatePressed(_ sender: Any) {
+        print("translate pressed")
         if (pickedImage == nil) {
             self.showAlert(description: "No Image Uploaded")
+        } else {
+            let languageId = LanguageIdentification.languageIdentification()
+            
+            print("back in translate function")
+            group.wait()
+            print(inputText)
+            languageInputField.text = inputText
+            languageInputField.textColor = UIColor.black
+            
+            let text = languageInputField.text!
+            languageId.identifyLanguage(for: text) { (languageCode, error) in
+              if let error = error {
+                print("Failed with error: \(error)")
+                return
+              }
+              if let languageCode = languageCode, languageCode != "und", languageCode != self.targetLanguage {
+                  print("Identified Language: \(languageCode)")
+                  
+                  // Call google translate api defined in GoogleTranslate.Swift
+                  let task = try? GoogleTranslate.sharedInstance.translateTextTask(text: self.languageInputField.text!, sourceLanguage: languageCode, targetLanguage: self.targetLanguage, completionHandler: {
+                      (translatedText: String?, error: Error?) in
+                      debugPrint(error?.localizedDescription)
+                      DispatchQueue.main.async {
+                          if (error == nil) {
+                              self.translatedText.text = translatedText
+                          } else {
+                              self.translatedText.text = text
+                          }
+                          self.translatedText.textColor = UIColor.black
+                      }
+                  })
+                  task?.resume()
+                  
+                  
+              } else {
+                print("No language was identified")
+              }
+            }
+            
         }
-        print("got picked image")
-        let languageId = LanguageIdentification.languageIdentification()
-        
-        // translate uploaded image
     }
     
     @IBAction func uploadImagePressed(_ sender: Any) {
@@ -121,12 +168,32 @@ class UploadViewController: UIViewController {
         doneButton.isHidden = true
     }
     
-
     private func showAlert(description: String? = nil) {
         let alertController = UIAlertController(title: "Oops...", message: "\(description ?? "Please try again...")", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default)
         alertController.addAction(action)
         present(alertController, animated: true)
+    }
+}
+
+// Image Processing
+
+extension UploadViewController {
+    func analyzeResults(_ dataToParse: Data) {
+        // Use SwiftyJSON to parse results
+        do {
+            print("parsing json")
+            let json = try JSON(data: dataToParse)
+            let text: JSON = json["responses"][0]["fullTextAnnotation"]["text"]
+            DispatchQueue.main.async {
+                self.inputText = text.stringValue
+                self.gotInputText = true
+            }
+        }
+        catch {
+            print("couldn't parse JSON")
+            showAlert(description: "Could not parse JSON response from API")
+        }
     }
 }
 
@@ -153,6 +220,12 @@ extension UploadViewController: PHPickerViewControllerDelegate {
            } else {
               DispatchQueue.main.async {
                  self?.pickedImage = image
+                 print("set pickedImage")
+                 print("encoding image in base64string")
+                  
+                 // Base64 encode image and create request
+                  let imageBase64String = self?.convertImageToBase64String((self?.pickedImage)!)
+                  self?.createRequest(with: imageBase64String!)
               }
            }
         }
@@ -212,3 +285,77 @@ extension UploadViewController : UITextViewDelegate {
     }
 }
 
+// Networking
+extension UploadViewController {
+    func convertImageToBase64String(_ image: UIImage, compressionQuality: CGFloat = 1.0) -> String? {
+        // Step 1: Get the data representation of the UIImage (in this case, as a JPEG)
+        guard let imageData = image.jpegData(compressionQuality: compressionQuality) else {
+            return nil
+        }
+        
+        // Step 2: Encode the data as a base64 string
+        let base64String = imageData.base64EncodedString(options: .lineLength64Characters)
+        
+        return base64String
+    }
+    
+    func createRequest(with imageBase64: String) {
+        print("creating API request")
+        // Create our request URL
+        var request = URLRequest(url: googleURL)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(Bundle.main.bundleIdentifier ?? "", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
+        
+        // Build our API Request
+        let jsonRequest = [
+            "requests": [
+                "image": [
+                    "content": imageBase64
+                ],
+                "features": [
+                    "type": "TEXT_DETECTION"
+                ]
+            ]
+        ]
+        let jsonObject = JSON(jsonRequest)
+        
+        // Serialize the JSON
+        guard let data = try? jsonObject.rawData() else {
+            return
+        }
+        
+        request.httpBody = data
+        
+//        // Run the request on a background thread
+//        DispatchQueue.global().async {
+//            self.runRequestOnBackgroundThread(request)
+//        }
+        let task: URLSessionDataTask = session.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+                
+            self.analyzeResults(data)
+        }
+            
+        task.resume()
+    }
+    
+    func runRequestOnBackgroundThread(_ request: URLRequest) {
+        // run the request
+            
+        let task: URLSessionDataTask = session.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+                
+            self.analyzeResults(data)
+        }
+            
+        task.resume()
+    }
+    
+}
