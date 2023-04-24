@@ -61,10 +61,12 @@ PODS:
   - nanopb/encode (2.30909.0)
   - PromisesObjC (2.2.0)
   - SSZipArchive (2.1.5)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - GoogleMLKit/LanguageID (= 4.0.0)
   - GoogleMLKit/Translate (= 4.0.0)
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
@@ -81,6 +83,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SSZipArchive
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   GoogleDataTransport: 8378d1fa8ac49753ea6ce70d65a7cb70ce5f66e6
@@ -96,7 +99,8 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   SSZipArchive: cefe1364104a0231268a5deb8495bdf2861f52f0
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: a128e2447563fec972e1f2d5efe301bc6002da64
+PODFILE CHECKSUM: 60154d0a010b6d5de948f07ba0fca7a899cfb52e
 
 COCOAPODS: 1.11.3
