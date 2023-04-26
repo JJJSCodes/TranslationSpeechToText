@@ -53,7 +53,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "GOOGLE_TRANSLATION_API_KEY"
-            value = "AIzaSyD8S8YaBwj3D1kyGVuNS837nwqwgiHtlbQ"
+            value = "AIzaSyASyu6ZjdD0id0tIqv4MX1vga7Vt2MNfcQ"
             isEnabled = "YES">
          </EnvironmentVariable>
          <EnvironmentVariable

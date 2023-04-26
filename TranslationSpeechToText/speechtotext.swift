@@ -8,6 +8,7 @@
 import UIKit
 import Speech
 import AVFoundation
+import MLKit
 
 class SpeechToText: UIViewController{
     
@@ -18,20 +19,17 @@ class SpeechToText: UIViewController{
     // record input language
     var output_language = "en-US"
     
+    //import alllanguage packet
+    let locale = Locale.current
+    lazy var allLanguages = TranslateLanguage.allLanguages().sorted {
+      return locale.localizedString(forLanguageCode: $0.rawValue)!
+        < locale.localizedString(forLanguageCode: $1.rawValue)!
+    }
+    
 //    let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
     let audioEngine = AVAudioEngine()
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     // input text
     @IBOutlet weak var textView: UITextView!
@@ -88,8 +86,25 @@ class SpeechToText: UIViewController{
     }
     
     // translation button
-    @IBAction func translateButtonTapped(_ sender: UIButton) {output.text =  textView.text
+    @IBAction func translateButtonTapped(_ sender: UIButton) {
+        if (textView.text!.isEmpty) {
+            print("Empty input")
+            return
         }
+        let task = try? GoogleTranslate.sharedInstance.translateTextTask(text: self.textView.text!, sourceLanguage: self.input_language, targetLanguage: self.output_language, completionHandler: { (translatedText: String?, error: Error?) in
+                          debugPrint(error?.localizedDescription)
+                          DispatchQueue.main.async {
+                              if (error == nil) {
+                                  self.output.text = translatedText
+                              } else {
+                                  self.output.text = self.textView.text
+                              }
+                              self.output.textColor = UIColor.black
+                          }
+                      })
+
+                      task?.resume()
+    }
 
     // record or not
     @objc func recordButtonTapped() {
@@ -98,7 +113,6 @@ class SpeechToText: UIViewController{
         } else {
             // clean up input textview
             textView.text = ""
-            
             startRecording()
         }
     }
@@ -129,6 +143,7 @@ class SpeechToText: UIViewController{
 
         let inputNode = audioEngine.inputNode
         let recordingFormat = inputNode.outputFormat(forBus: 0)
+        inputNode.removeTap(onBus: 0)
 
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
             recognitionRequest.append(buffer)
@@ -179,31 +194,59 @@ extension SpeechToText: SFSpeechRecognizerDelegate {
 
 // Langauge Picker
 extension SpeechToText: UIPickerViewDataSource, UIPickerViewDelegate {
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return data.count
+        return allLanguages.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return data[row]
+        return Locale.current.localizedString(forLanguageCode: allLanguages[row].rawValue)
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 1{
-            let outputLanguage = data[pickerView.selectedRow(inComponent: 0)]
-            input_language = outputLanguage
+            let outputLanguage = allLanguages[pickerView.selectedRow(inComponent: 0)]
+            input_language = outputLanguage.rawValue
             print("=-=-=-=-=-=-=-=-=-=-")
             print(input_language)
         }
         else{
-            let outputLanguage = data[pickerView.selectedRow(inComponent: 0)]
-            output_language = outputLanguage
+            let outputLanguage = allLanguages[pickerView.selectedRow(inComponent: 0)]
+            output_language = outputLanguage.rawValue
             print("+_+_+_+_+_+_+_+_+_+_")
             print(output_language)
         }
     }
 }
+//extension SpeechToText: UIPickerViewDataSource, UIPickerViewDelegate {
+//
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return data.count
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return data[row]
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        if pickerView.tag == 1{
+//            let outputLanguage = data[pickerView.selectedRow(inComponent: 0)]
+//            input_language = outputLanguage
+//            print("=-=-=-=-=-=-=-=-=-=-")
+//            print(input_language)
+//        }
+//        else{
+//            let outputLanguage = data[pickerView.selectedRow(inComponent: 0)]
+//            output_language = outputLanguage
+//            print("+_+_+_+_+_+_+_+_+_+_")
+//            print(output_language)
+//        }
+//    }
+//}

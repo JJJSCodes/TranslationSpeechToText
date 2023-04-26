@@ -25,5 +25,9 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>speech</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>microphone</string>
 </dict>
 </plist>
